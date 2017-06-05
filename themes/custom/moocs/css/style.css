@@ -6281,6 +6281,12 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed {
     body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tray, body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed .toolbar-tray > .toolbar-lining:before {
       width: 240px; }
 
+.path-frontpage .view-frontpage-courses {
+  padding-top: 50px; }
+  .path-frontpage .view-frontpage-courses .views-field-title {
+    text-align: center;
+    width: 300px; }
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
