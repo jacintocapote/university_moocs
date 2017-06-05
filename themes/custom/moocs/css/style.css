@@ -6285,7 +6285,11 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed {
   padding-top: 50px; }
   .path-frontpage .view-frontpage-courses .views-field-title {
     text-align: center;
-    width: 300px; }
+    width: 300px;
+    margin-top: -20px;
+    background-color: #E95420; }
+    .path-frontpage .view-frontpage-courses .views-field-title a {
+      color: white; }
 
 /**
  * jQuery UI autocomplete widget style overrides.
