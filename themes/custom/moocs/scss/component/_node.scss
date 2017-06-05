@@ -9,3 +9,26 @@
 .node-preview-form-select {
   padding: ($grid-gutter-width / 2);
 }
+
+/**
+ * Courses styles.
+ */
+.page-node-type-course {
+  .flagbtn a {
+    font-size: 2em;
+  }
+
+  .field--label-above .field--label {
+    font-size: 1.5em;
+    padding: 20px 0;
+  }
+
+  .group-header {
+    padding-bottom: 20px;
+  }
+  .group-left {
+    .field--name-field-course-primary-image {
+      padding-bottom: 20px;
+    }
+  }
+}

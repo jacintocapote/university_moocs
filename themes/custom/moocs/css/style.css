@@ -6105,6 +6105,19 @@ body {
   padding: 15px; }
 
 /**
+ * Courses styles.
+ */
+.page-node-type-course .flagbtn a {
+  font-size: 2em; }
+.page-node-type-course .field--label-above .field--label {
+  font-size: 1.5em;
+  padding: 20px 0; }
+.page-node-type-course .group-header {
+  padding-bottom: 20px; }
+.page-node-type-course .group-left .field--name-field-course-primary-image {
+  padding-bottom: 20px; }
+
+/**
  * Panel styling.
  */
 .panel-title {
