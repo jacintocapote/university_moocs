@@ -6366,5 +6366,7 @@ p:last-child,
 @media (max-width: 767px) {
   .navbar .dropdown-menu a {
     color: #fff; } }
+.region-header .logo img {
+  padding: 10px 15px; }
 
 /*# sourceMappingURL=style.css.map */
