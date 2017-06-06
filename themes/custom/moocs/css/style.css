@@ -6329,6 +6329,9 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed {
 .path-search .views-exposed-form label {
   font-size: 2.5em; }
 
+.path-user .view-wishlist .img-responsive {
+  max-width: 90%; }
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
