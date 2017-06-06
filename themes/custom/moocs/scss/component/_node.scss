@@ -32,11 +32,9 @@
     }
   }
 
-  .field--name-field-course-signup-page {
+  .field--name-field-course-signup-page a {
     font-size: 2.5em;
     background: $brand-primary;
-    a {
-      color: white;
-    }
+    color: white;
   }
 }

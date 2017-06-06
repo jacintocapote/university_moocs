@@ -6116,11 +6116,10 @@ body {
   padding-bottom: 20px; }
 .page-node-type-course .group-left .field--name-field-course-primary-image {
   padding-bottom: 20px; }
-.page-node-type-course .field--name-field-course-signup-page {
+.page-node-type-course .field--name-field-course-signup-page a {
   font-size: 2.5em;
-  background: #E95420; }
-  .page-node-type-course .field--name-field-course-signup-page a {
-    color: white; }
+  background: #E95420;
+  color: white; }
 
 /**
  * Panel styling.
