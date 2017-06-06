@@ -1,8 +1,9 @@
+cdn_provider: ''
 favicon:
   mimetype: image/vnd.microsoft.icon
-  path: ''
-  url: 'http://amazee-sitebuilding.kbox.site/themes/moocs/favicon.ico'
-  use_default: 1
+  path: 'public://favicon.ico'
+  url: 'http://dev-amazee-sitebuilding.pantheonsite.io/themes/custom/moocs/favicon.ico'
+  use_default: 0
 schemas:
   bootstrap: 8000
   moocs: 8000
@@ -12,9 +13,9 @@ features:
   favicon: 1
   node_user_picture: 1
 logo:
-  path: ''
+  path: 'public://logo_moocs.png'
   url: ''
-  use_default: 1
-cdn_provider: ''
+  use_default: 0
 table_responsive: '-1'
 table: ''
+navbar_position: fixed-top

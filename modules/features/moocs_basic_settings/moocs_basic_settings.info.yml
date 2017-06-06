@@ -4,3 +4,7 @@ type: module
 core: 8.x
 version: 8.x-1.0
 package: moocs
+dependencies:
+  - captcha
+  - page_manager
+  - user
