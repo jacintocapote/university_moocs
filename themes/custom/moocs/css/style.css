@@ -6118,8 +6118,9 @@ body {
   padding-bottom: 20px; }
 .page-node-type-course .field--name-field-course-signup-page {
   font-size: 2.5em;
-  background: #E95420;
-  color: white; }
+  background: #E95420; }
+  .page-node-type-course .field--name-field-course-signup-page a {
+    color: white; }
 
 /**
  * Panel styling.

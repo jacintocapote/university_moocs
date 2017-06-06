@@ -35,6 +35,8 @@
   .field--name-field-course-signup-page {
     font-size: 2.5em;
     background: $brand-primary;
-    color: white;
+    a {
+      color: white;
+    }
   }
 }
