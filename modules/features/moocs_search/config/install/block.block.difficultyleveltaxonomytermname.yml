@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.difficulty_level
+  module:
+    - facets
+    - system
+  theme:
+    - moocs
+id: difficultyleveltaxonomytermname
+theme: moocs
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'facet_block:difficulty_level'
+settings:
+  id: 'facet_block:difficulty_level'
+  label: 'Difficulty Level'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

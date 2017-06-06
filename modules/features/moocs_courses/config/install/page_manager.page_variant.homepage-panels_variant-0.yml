@@ -1,0 +1,55 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.homepage
+    - views.view.frontpage_courses
+  content:
+    - 'block_content:basic:01ee6c4b-79ca-46cf-b109-1ba288083545'
+  module:
+    - block_content
+    - panels
+    - views
+id: homepage-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    1730cd7a-b2ac-4ae1-a9c9-ee6bfc705ba4:
+      id: 'views_block:frontpage_courses-block_1'
+      label: 'Featured courses'
+      provider: views
+      label_display: visible
+      views_label: 'Featured courses'
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 1730cd7a-b2ac-4ae1-a9c9-ee6bfc705ba4
+      context_mapping: {  }
+    a3b8e28e-0990-46ec-ac19-84327d7738fb:
+      id: 'block_content:01ee6c4b-79ca-46cf-b109-1ba288083545'
+      label: 'Homepage intro'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: a3b8e28e-0990-46ec-ac19-84327d7738fb
+      context_mapping: {  }
+  id: panels_variant
+  uuid: c66702bc-becb-48bb-8e71-e049c5454c1f
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'University Business School'
+  storage_type: page_manager
+  storage_id: homepage-panels_variant-0
+  builder: ipe
+page: homepage
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,105 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_cost
+    - field.storage.node.field_course_difficulty_level
+    - field.storage.node.field_course_topic_area
+    - search_api.server.courses
+  module:
+    - taxonomy
+    - search_api
+    - node
+id: general_search
+name: 'General search'
+description: ''
+read_only: false
+field_settings:
+  rendered_item:
+    label: 'Rendered HTML output'
+    property_path: rendered_item
+    type: text
+    configuration:
+      roles:
+        anonymous: anonymous
+      view_mode:
+        'entity:node':
+          course: default
+  langcode:
+    label: Language
+    datasource_id: 'entity:node'
+    property_path: langcode
+    type: string
+  nid:
+    label: ID
+    datasource_id: 'entity:node'
+    property_path: nid
+    type: integer
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  field_course_cost:
+    label: Cost
+    datasource_id: 'entity:node'
+    property_path: field_course_cost
+    type: decimal
+    dependencies:
+      config:
+        - field.storage.node.field_course_cost
+  field_course_difficulty_level:
+    label: 'Difficulty Level'
+    datasource_id: 'entity:node'
+    property_path: field_course_difficulty_level
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_course_difficulty_level
+  field_course_topic_area:
+    label: 'Topic Area'
+    datasource_id: 'entity:node'
+    property_path: field_course_topic_area
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_course_topic_area
+  topic_area_name:
+    label: 'Topic Area » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_course_topic_area:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_course_topic_area
+      module:
+        - taxonomy
+  difficult_level_name:
+    label: 'Difficulty Level » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_course_difficulty_level:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_course_difficulty_level
+      module:
+        - taxonomy
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - course
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  rendered_item: {  }
+  aggregated_field: {  }
+tracker_settings:
+  default: {  }
+options:
+  index_directly: true
+  cron_limit: 50
+server: courses

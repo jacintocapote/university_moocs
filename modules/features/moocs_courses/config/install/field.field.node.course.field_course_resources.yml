@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_resources
+    - node.type.course
+  module:
+    - link
+id: node.course.field_course_resources
+field_name: field_course_resources
+entity_type: node
+bundle: course
+label: Resources
+description: 'Links resources related with the course'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 2
+field_type: link

@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.cost
+  module:
+    - facets
+    - system
+  theme:
+    - moocs
+id: cost
+theme: moocs
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:cost'
+settings:
+  id: 'facet_block:cost'
+  label: 'Cost in $'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

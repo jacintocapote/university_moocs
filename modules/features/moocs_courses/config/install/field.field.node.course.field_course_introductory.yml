@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_introductory
+    - node.type.course
+  module:
+    - text
+id: node.course.field_course_introductory
+field_name: field_course_introductory
+entity_type: node
+bundle: course
+label: 'Introductory text'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

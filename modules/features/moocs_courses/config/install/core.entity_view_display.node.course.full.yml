@@ -1,0 +1,170 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.course.field_course_cost
+    - field.field.node.course.field_course_detailed
+    - field.field.node.course.field_course_difficulty_level
+    - field.field.node.course.field_course_downloads
+    - field.field.node.course.field_course_introductory
+    - field.field.node.course.field_course_primary_image
+    - field.field.node.course.field_course_resources
+    - field.field.node.course.field_course_signup_page
+    - field.field.node.course.field_course_topic_area
+    - field.field.node.course.field_course_video
+    - image.style.focal_point
+    - node.type.course
+  module:
+    - ds
+    - file
+    - image
+    - link
+    - text
+    - user
+    - youtube
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      header:
+        - flag_wishlist
+        - field_course_introductory
+      left:
+        - field_course_primary_image
+        - field_course_cost
+        - field_course_topic_area
+        - field_course_difficulty_level
+        - field_course_signup_page
+        - field_course_resources
+      right:
+        - field_course_video
+      footer:
+        - field_course_detailed
+        - field_course_downloads
+id: node.course.full
+targetEntityType: node
+bundle: course
+mode: full
+content:
+  field_course_cost:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: left
+  field_course_detailed:
+    type: text_default
+    weight: 9
+    region: footer
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_course_difficulty_level:
+    weight: 5
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: left
+  field_course_downloads:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+    region: footer
+  field_course_introductory:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: header
+  field_course_primary_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: focal_point
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: left
+  field_course_resources:
+    weight: 7
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: left
+  field_course_signup_page:
+    weight: 6
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: left
+  field_course_topic_area:
+    weight: 4
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: left
+  field_course_video:
+    weight: 8
+    label: hidden
+    settings:
+      youtube_size: 450x315
+      youtube_width: ''
+      youtube_height: ''
+      youtube_autoplay: false
+      youtube_loop: false
+      youtube_showinfo: false
+      youtube_controls: false
+      youtube_autohide: false
+      youtube_iv_load_policy: false
+    third_party_settings: {  }
+    type: youtube_video
+    region: right
+  flag_wishlist:
+    weight: 0
+    region: header
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  links: true

@@ -1,0 +1,130 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.course.field_course_cost
+    - field.field.node.course.field_course_detailed
+    - field.field.node.course.field_course_difficulty_level
+    - field.field.node.course.field_course_downloads
+    - field.field.node.course.field_course_introductory
+    - field.field.node.course.field_course_primary_image
+    - field.field.node.course.field_course_resources
+    - field.field.node.course.field_course_signup_page
+    - field.field.node.course.field_course_topic_area
+    - field.field.node.course.field_course_video
+    - image.style.medium
+    - node.type.course
+  module:
+    - file
+    - image
+    - link
+    - text
+    - youtube
+id: node.course.default
+targetEntityType: node
+bundle: course
+mode: default
+content:
+  field_course_cost:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_course_detailed:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_course_difficulty_level:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_course_downloads:
+    weight: 10
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_course_introductory:
+    weight: 5
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_course_primary_image:
+    weight: 7
+    settings:
+      preview_image_style: medium
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_course_resources:
+    weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_course_signup_page:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_course_topic_area:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_course_video:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: youtube
+    region: content
+  langcode:
+    type: language_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 13
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  sticky: true
+  uid: true

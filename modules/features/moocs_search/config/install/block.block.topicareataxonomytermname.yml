@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.topic_area
+  module:
+    - facets
+    - system
+  theme:
+    - moocs
+id: topicareataxonomytermname
+theme: moocs
+region: sidebar_first
+weight: -4
+provider: null
+plugin: 'facet_block:topic_area'
+settings:
+  id: 'facet_block:topic_area'
+  label: 'Topic Area'
+  provider: facets
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/search\r\n/search/*"
+    negate: false
+    context_mapping: {  }

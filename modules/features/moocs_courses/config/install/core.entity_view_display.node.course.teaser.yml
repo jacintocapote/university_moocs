@@ -1,0 +1,70 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course.field_course_cost
+    - field.field.node.course.field_course_detailed
+    - field.field.node.course.field_course_difficulty_level
+    - field.field.node.course.field_course_downloads
+    - field.field.node.course.field_course_introductory
+    - field.field.node.course.field_course_primary_image
+    - field.field.node.course.field_course_resources
+    - field.field.node.course.field_course_signup_page
+    - field.field.node.course.field_course_topic_area
+    - field.field.node.course.field_course_video
+    - image.style.focal_point
+    - node.type.course
+  module:
+    - ds
+    - image
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_course_primary_image
+        - node_title
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+id: node.course.teaser
+targetEntityType: node
+bundle: course
+mode: teaser
+content:
+  field_course_primary_image:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: focal_point
+      image_link: content
+    third_party_settings: {  }
+hidden:
+  field_course_cost: true
+  field_course_detailed: true
+  field_course_difficulty_level: true
+  field_course_downloads: true
+  field_course_introductory: true
+  field_course_resources: true
+  field_course_signup_page: true
+  field_course_topic_area: true
+  field_course_video: true
+  flag_wishlist: true
+  langcode: true
+  links: true

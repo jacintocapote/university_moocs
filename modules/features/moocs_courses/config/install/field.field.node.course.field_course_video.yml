@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_video
+    - node.type.course
+  module:
+    - youtube
+id: node.course.field_course_video
+field_name: field_course_video
+entity_type: node
+bundle: course
+label: Video
+description: 'Video related with the course'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: youtube

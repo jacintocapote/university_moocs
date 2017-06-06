@@ -1,0 +1,15 @@
+name: 'Moocs search'
+description: 'Settings for everything related with search'
+type: module
+core: 8.x
+dependencies:
+  - block
+  - facets
+  - node
+  - search_api
+  - search_api_db
+  - system
+  - taxonomy
+  - views
+version: 8.x-1.0
+package: moocs

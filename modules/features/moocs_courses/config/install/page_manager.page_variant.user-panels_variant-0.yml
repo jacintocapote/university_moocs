@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.user
+    - views.view.wishlist
+  module:
+    - ctools
+    - panels
+    - views
+id: user-panels_variant-0
+label: User
+variant: panels_variant
+variant_settings:
+  blocks:
+    aafb584e-2a38-4c55-ba00-637cdd8eb9e8:
+      id: 'views_block:wishlist-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: aafb584e-2a38-4c55-ba00-637cdd8eb9e8
+      context_mapping: {  }
+    401519b6-29c7-4b94-b243-82f0263a2914:
+      id: 'entity_view:user'
+      label: 'User information'
+      provider: ctools
+      label_display: visible
+      view_mode: default
+      region: content
+      weight: 0
+      uuid: 401519b6-29c7-4b94-b243-82f0263a2914
+      context_mapping:
+        entity: user
+  id: panels_variant
+  uuid: 19ba8697-df31-4312-9547-22fe7e9e3840
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: user-panels_variant-0
+  builder: ipe
+page: user
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

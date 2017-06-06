@@ -1,0 +1,25 @@
+name: 'Moocs courses'
+description: 'Settings for everything related with courses'
+type: module
+core: 8.x
+dependencies:
+  - block_content
+  - content_translation
+  - ctools
+  - ds
+  - field
+  - file
+  - flag
+  - image
+  - language
+  - link
+  - menu_ui
+  - node
+  - page_manager
+  - panels
+  - text
+  - user
+  - views
+  - youtube
+version: 8.x-1.0
+package: moocs
