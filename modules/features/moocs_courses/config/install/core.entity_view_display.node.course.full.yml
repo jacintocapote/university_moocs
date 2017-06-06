@@ -85,7 +85,7 @@ content:
     weight: 5
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: left
@@ -126,7 +126,7 @@ content:
     region: left
   field_course_signup_page:
     weight: 6
-    label: inline
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -140,7 +140,7 @@ content:
     weight: 4
     label: inline
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: left

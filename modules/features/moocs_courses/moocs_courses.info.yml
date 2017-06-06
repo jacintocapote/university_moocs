@@ -10,13 +10,16 @@ dependencies:
   - field
   - file
   - flag
+  - focal_point
   - image
   - language
   - link
   - menu_ui
+  - moocs_basic_settings
   - node
   - page_manager
   - panels
+  - taxonomy
   - text
   - user
   - views

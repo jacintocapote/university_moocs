@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Topics Areas'
+vid: topics_areas
+description: 'Topics Areas used for course content type'
+hierarchy: 0
+weight: 0

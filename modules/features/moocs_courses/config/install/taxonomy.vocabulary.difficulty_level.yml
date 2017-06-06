@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Difficulty Level'
+vid: difficulty_level
+description: 'Difficulty Level used for course content type'
+hierarchy: 0
+weight: 0

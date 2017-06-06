@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point
+label: 'Focal Point(300x300)'
+effects:
+  59ff8216-ebf4-459e-848c-24a5c03f7800:
+    uuid: 59ff8216-ebf4-459e-848c-24a5c03f7800
+    id: focal_point_crop
+    weight: 2
+    data:
+      width: 300
+      height: 300

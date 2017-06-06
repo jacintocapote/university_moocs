@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies: {  }
+id: wishlist
+label: Wishlist
+bundles:
+  - course
+entity_type: node
+global: false
+weight: 0
+flag_short: 'Add to wishlist'
+flag_long: 'Add this course to my wishlist'
+flag_message: 'This course was added to your wishlist'
+unflag_short: 'Remove from wishlist'
+unflag_long: 'Remove this course to my wishlist'
+unflag_message: 'This course was removed to your wishlist'
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: reload
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }
