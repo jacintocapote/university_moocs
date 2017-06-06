@@ -6324,6 +6324,11 @@ body.toolbar-fixed.toolbar-vertical.toolbar-tray-open.toolbar-fixed {
     .path-frontpage .view-frontpage-courses .views-field-title a {
       color: white; }
 
+.path-search .view-search .img-responsive {
+  max-width: 90%; }
+.path-search .views-exposed-form label {
+  font-size: 2.5em; }
+
 /**
  * jQuery UI autocomplete widget style overrides.
  *
