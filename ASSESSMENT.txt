@@ -13,3 +13,5 @@ We will use a sub theme boostrap with SASS
 
 
 Name project: Moocs
+
+Explain because use taxonomies for Difficulty level and Topics Areas
