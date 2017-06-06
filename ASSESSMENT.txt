@@ -1,17 +1,158 @@
 Introduction
-=========================
+=====================================================
+A Business School in a large University has decided to offer courses in an online format (MOOC). They have their own learning management system to run the MOOCs but they have no way of advertising the courses. You have been employed by the Business School to help them build a site that they can use to publish information about their MOOC Programmes.
 
+Why Drupal 8?
+====================================================
+
+Drupal 8 is the current stable version for drupal. If we are creating a new site for a long term and we need to do maintance, support, .... we need to use drupal 8. For create the site we can spend more time but for maintenance, support will be more easy.
+
+Architectural decisions
+====================================================
+
+1. Content types/taxonomies.
+
+We have 2 content types on the website:
+  * Basic page: Used for basic pages as about us, license, 403, 404, ... you can see on the footer a couple pages examples.
+  * Course: Is the principal content type on the website. The fields are:
+     * Cost (field_course_cost): Cost course in $ (required)
+     * Detailed course (field_course_detailed): formatted long field to add a detailed course information (required)
+     * Difficulty Level(field_course_difficulty_level): A relationship with Difficulty Level vocabulary (required)
+     * Downloads(field_course_downloads): Multi field file to upload downloads (txt, pdf) but we can add anothers formats.
+     * Introductory text(field_course_introductory): Formatted long field to add introductory text about the course (Required).
+     * Primary image(field_course_primary_image): The primary image. The user can select the focal point after upload and will be used on the view. (Required).
+     * Resources(field_course_resources): Multi field links with external resources.
+     * Signup page(field_course_signup_page): A link to sign up page. (Required)
+     * Topic Area(field_course_topic_area); A relationship with Topic Area vocabulary. (Required)
+     * Video(field_course_video): A simple field to add youtube video. (Required)
+
+I definied two vocabularies:
+   * Topic Areas (Business Management, Business Finance, Innnovation, Entrepreneurship)
+   * Difficulty Level (Introductory, Intermediate, Advanced, Specialty).
+
+Because use vocabularies?. Is the best solutions for these lists. We can translate (I leave prepare for this). We can expand easy and we can create a new features based on these vocabularies (pages, views, lists, ....).
+
+
+2.- Translation system
+
+The website allow translate courses in 3 languages (english principal, french, german). I added full settings to allow a create a full multilanguage website but right now is only enable for courses. If you access to any course you can see on the left a couple links to select language. If you click you will see the translation for the course. If a course doesn't have a translation will show a english version. Another implementation about multilanguage. I created a different paths for each language. For example for french the path will be cours/[node-title] instead course/[node-title] (english version).
+As I commented at the beginning the system is prepare for expand the website and create full multilanguage. For exmaple if you go to search page and use /fr prefix you only will see french content.
+Another decision is use the prefix for change the language. If you click on french in a course you will go to /fr/cours/[node-title]. I think is a good detection system to know what is the current language only checking the url.
+
+
+3.- Search
+
+For search I used search API. Because?. Search API is the best solution to create good search system. At the moment is using as server DB but with a simple change we can change to apache solr and increase the performance on the website. Another reason to use search API is the integration with facets. For a good UX the best solution for create a search is do a search based on keywords and then refine with facets. I created 3 facets:
+   * Costs: A facet with group ranges. The group range is based on 100. For example all courses from 100-200$ will be show as 1 group only.
+   * Topic Area: Simple facet to refine based on Topic Area vocabulary.
+   * Difficulty Level: Simple facet to refine based on Difficulty Level.
+The format view for search is a grid with 3 items (picture and title). And then you can navigate to course node view.
+
+
+4. User and wishlist
+
+Users can register on the website. I added a antispam system (google captcha) to prevent spam on register/login/reset password. After register you need to confirm your account via a link. After this you go to your account page. Is a simple where you can see your information and your wishlist.
+The wishlist feature is easy. You can go to any course and on the top you will see a link to add/remove to your wishlist. I implemented this system without administer view, .... because I think is more easy for UX. A wishlist for a user can be access from anonymous and another usres for example http://dev-amazee-sitebuilding.pantheonsite.io/user/jacinto-capote-robles
+
+A good expand for this should be create a public user list and when you click then see the wishlist for each user. I didn't create a user list because I think is a problem with privacy. For create this we should create a new feature for users where the user can be select if is a public or not, .... is a more complex workflow.
+
+
+5.- Editor role
+
+Provide an administrator user or admin to customers is a bad idea. I like to create always a editor role with the right permission to create/manage/delete content. I created a new role editor where can manage courses, people, ... 
 
 Features
-=========================
-Using feature to export settings
+=================================
+Using feature to export settings. Is very important these features to track any change on the site after deploy to live. I created 3 features:
+  * moocs_basic_settings: Basic settings from drupal.
+  * moocs_courses: Everything relatd with courses.
+  * moocs_search: Everything related with search.
 
+
+Installation instruction
+=================================
+I used pantheon to develop this website you can access via:
+  * http://dev-amazee-sitebuilding.pantheonsite.io
+     * admin:1dm1n
+     * test:test (Normal user)
+     * jacintocapoteeditor:test (Editor user)
+
+Steps to install on local (based on acquia dev desktop). I use this example to be more easy but you can use dockers (is a little more complex), kalabox, ......:
+   1.- I suppos you have acquia dev desktop on local.
+   2.- Clone repo on your local (git@github.com:jacintocapote/university_moocs.git)
+   3.- Go to acquia dev desktop click + and import local environment.
+   4.- Select directory where you cloned code.
+   5.- Select on database the dump from the folder backup (tar.gz file) and click ok.
+   6.- Uncompress files from backup folder(zip file) and copy to sites/default/files.
+   7.- For check environment on local this step is very important. You need to disable captcha module (drush dis captcha) to allow do login/register or use the domain university-moocs.dd.
+   8.. Now you have ready the environment in your local.
+
+Setps for test each functional Requirements
+=============================================
+
+The steps for tests functional requirements are:
+  1.- Multilanguage:
+    1.1.- Go to homepage.
+    1.2.- Click on any featured course.
+    1.3.- On the left click on french/german and you should see the version in the right language.
+    1.4.- Do login with admin user and go to /admin path you will see everything in english language.
+  2.- Images:
+    2.1.- Do login with admin/editor user.
+    2.2.- Go to /node/add/course.
+    2.3.- Fill all fields and when you upload a primary image you will see a + to select a focal point.
+    2.4.- Select a focal point and save node.
+    2.5.- After save node you will see the image on the view mode with the focal point selected.
+  3.- Course view:
+    3.1.- Go to homepage.
+    3.2.- Click on any featured course.
+    3.3.- You will see full information related with the curse.
+  4.- Listing page:
+    4.1.- Go to /search or click on the main menu Find a course.
+    4.2.- Insert any keyword on the search.
+    4.3.- Refine the search with the facets on the left.
+    4.4.- The results will show a picture and title (both are click to the course).
+    4.5.- Click on any course showed on the results.
+  5.- Registered users:
+    5.1.- As anonymous click on Sign in.
+    5.2.- Fill fields and submit.
+    5.3.- Confirm your account with the link.
+    5.4.- Go to any course and click on add to wishlist.
+    5.5.- Click in 'My account' and you should see the course added to your wishlist.
+    5.6.- Copy the url from your profile and do logout.
+    5.7.- Access to the url with anonymous user and you can see your profile info and your wishlist.
+
+Information for developers
+=================================
+I used some modules for create structures, ... these modules are:
+  * Display suite: Was used to create new view modes and create layouts for course content type. The course content type use a layout with 2 columns to show the information with a good structure.
+  * Panels/page manager: Page manager is used to create homepage and override user view. Is a fantastic solution to create new pages with custom layouts. The homepage is a simple 1 column page with 2 blocks and user profile page the same. A simple 1 column page with 2 blocks.
+  * Facets/search api: Facets is enable and used only for search view. Search is enable and indexing only course content type. I added a field with the full html render content and the basic fields used on the facets.
+  * Features: Used to created 3 features with the settings information.
+  * Wishlist: Wishlist is implement with the flag module. Creating a basic flag entity with name wishlist and the list on the user profile page is creted with a view.
+  * Email registration: Used for UX for insert only email address on the register form.
+  * Captcha: Used on user login/register/rest password. For develop on local you need to disable.
+  * Google font: Is used for h1/h2 title and for the hero block on the homepage.
+  * Metatags: The module metatags is enable for SEO. Has the basic information.
+  * Pathauto: Enable for clean URL on users and content types.
+  * admin_menu/admin_toolbar: For develop more fast with a good toolbar.
+  * Youtube: Added for alow fields with youtube videos.
 
 Theme
-========================
-We will use a sub theme boostrap with SASS
+=================================
+I used a boostrap subtheme. The name is moocs. This theme use SASS and has some changes in components to override styles and some templates override for create a better output for ul list, ...
 
 
-Name project: Moocs
+Deploy to live
+=================================
 
-Explain because use taxonomies for Difficulty level and Topics Areas
+Right now the environment isn't ready for deploy to live. For deploy to live we need to multiple changes. A little summary is:
+  * Enable cache.
+  * Disable UI modules.
+  * Do a good testing and performance test.
+
+Good features for next releases
+=================================
+  1.- Public user list with wishlist.
+  2.- Comments in courses.
+  3.- Automatic import courses.
+  4.- Workflow for editors and create courses.
