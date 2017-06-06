@@ -24,4 +24,4 @@ if (file_exists($local_settings)) {
   include $local_settings;
 }
 $settings['install_profile'] = 'standard';
-$settings['has_salt'] = 'mooc_site_drupal8';
+$settings['hash_salt'] = 'mooc_site_drupal8';
